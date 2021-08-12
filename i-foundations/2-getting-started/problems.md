@@ -30,6 +30,10 @@ Bubblesort(A)
 ```
 ***a.*** Let _A_' denote the output of `Bubblesort(A)`. To prove that `Bubblesort` is correct, we need to prove that it terminates and that _A_'[1] ≤ _A_'[2] ≤ ... ≤ _A_'[_n_], where _n_ = _A.length_. In order to show that `Bubblesort` actually sorts, what else do we need to prove?
 
-That the elements in A' are the same as A.
+* That the elements in A' are the same as A.
 
 ***b.*** State precisely a loop invariant for the for loop in lines 2–4, and prove that this loop invariant holds. Your proof should use the structure of the loop invariant proof presented in this chapter.
+
+* The loop in question maintains the following loop invariant: at the start of each iteration of the loop, the subarray A[j..n] is a permutation of the values that were in A[j..n] when the loop started, and the element A[j] is the smallest among them.
+* **Initialisation:** initially, j = n, so the subarray A[j..n] contains only one one element A[n], trivially the smallest element of the subarray, and thus the loop invariant holds
+* **Maintainence:** 
