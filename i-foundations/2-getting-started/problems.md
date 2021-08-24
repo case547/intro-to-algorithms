@@ -17,7 +17,7 @@ Although merge sort runs in Θ(_n_ lg _n_) worst-case time and insertion sort ru
 * Θ(2n lg n - n lg(lg n)) = Θ(n lg n)
 
 ***d.*** How should we choose _k_ in practice?
-* Largest sublist length at which insertion sort would be faster than merge sort
+* Largest sublist length with which insertion sort would be faster than merge sort
 
 ***2-2 Correctness of bubblesort***<br>
 Bubblesort is a popular, but inefficient, sorting algorithm. It works by repeatedly swapping adjacent elements that are out of order.
@@ -32,8 +32,9 @@ Bubblesort(A)
 
 * That the elements in A' are the same as A.
 
-***b.*** State precisely a loop invariant for the for loop in lines 2–4, and prove that this loop invariant holds. Your proof should use the structure of the loop invariant proof presented in this chapter.
+***b.*** State precisely a loop invariant for the for loop in lines 2–4 (the **downto** loop), and prove that this loop invariant holds. Your proof should use the structure of the loop invariant proof presented in this chapter.
 
 * The loop in question maintains the following loop invariant: at the start of each iteration of the loop, the subarray A[j..n] is a permutation of the values that were in A[j..n] when the loop started, and the element A[j] is the smallest among them.
-* **Initialisation:** initially, j = n, so the subarray A[j..n] contains only one one element A[n], trivially the smallest element of the subarray, and thus the loop invariant holds
-* **Maintainence:** 
+* **Initialisation:** Initially, j = n, so the subarray A[j..n] contains only one one element A[n], trivially the smallest element of the subarray, and thus the loop invariant holds
+* **Maintainence:** Every iteration of the loop, A[j] is compared to A[j-1], and is swapped if smaller. After each iteration, the length of subarray A[j..n] increases by one and A[j] is the smallest element within it. The elements in the subarray remain a permutation of the elements that were it at the start of the loop.
+* **Termination:** The loop terminates when j = i. As A[i] is the smallest element in A[i..n], and A[i..n] would consist of the same elements as at the start of the loop, the loop invariant is held.
