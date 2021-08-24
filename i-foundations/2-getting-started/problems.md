@@ -88,3 +88,5 @@ for j = 0 to n
     y = y + a_j * hold
 ```
 * Running time is Θ(n<sup>2</sup>), which is worse than using Horner's rule
+
+***c.***
