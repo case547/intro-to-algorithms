@@ -58,3 +58,26 @@ i=1
           = (n^2 - n)/2
 ```
 * Thus, the worst case running time of bubblesort is Θ(n<sup>2</sup>), the same as insertion sort.
+
+***2-3 Correctness of Horner's rule***
+The following code fragment impelements Horner's rule for evaluating a polynomial
+```
+       n
+P(x) = Σ a_k * x^k = a_0 + x(a_1 + x(a_2 + ... + x(a_(n-1) + x*a_n)...)),
+      k=0
+```
+given the coefficients *a*<sub>0</sub>, *a*<sub>1</sub>, ... ,*a*<sub>n</sub> and a value for *x*:
+```
+y = 0
+for i = n downto 0
+    y = a_i_ + x*y
+```
+***a.*** In terms of Θ-notation, what is the running time of this code fragment for Horner's rule?
+
+* Θ(n)
+
+***b.*** Write pseudocode to implement the naive polynomial evaluation that computes each term from scratch. What is the running time of this algorithm? How does it compare to Horner's rule?
+```
+px = 0
+for i = 0 to n
+    px += a_i * x*i
