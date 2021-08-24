@@ -42,3 +42,19 @@ Bubblesort(A)
 ***c.*** Using the termination condition of the loop invariant proved in part (b), state a loop invariant for the **for** loop in lines 1–4 that will allow you to prove _A_'[1] ≤ _A_'[2] ≤ ... ≤ _A_'[_n_]. Your proof should use the strucutre of the loop invariant prof present in this chapter.
 
 * At the start of each iteration of the loop, the subarray A[1..i-1] contains the i-1 smallest values in the array in sorted order. Subarray A[i..n] contains the remaining n-i+1 remaining values in the array.
+* **Initialisation:** Initially, i = 1, therfore the subarray A[1..i-1] is empty, and trivially contains the smallest zero elements.
+* **Maintenance:** At the end of the inner loop, A[i] becomes the smallest element of the array, so A[1..i] contains the i smallest values in the array, in sorted order. Meanwhile, A[i+1..n] contains the remaining n-i remaining elements.
+* **Termination:** The loop terminates when i = n, such that by the loop invariant, A[1..n-1] would contain the n-1 smallest elements in the array, sorted; A[n] would contain the last element, which must be the largest element, thus resulting in a fully sorted array.
+
+***d.*** What is the worst-case running time of bubblesort? How does it compare to the running time of insertion sort?
+
+* For every value of i from 1 to n-1, the inner for loop makes n-i iterations:
+```
+n-1
+ Σ(n - i) = (n-1)/2 * [n-1 + n-(n-1)]
+i=1
+          = (n-1)/2 * (n - 1 + n - n + 1)
+          = (n-1)/2 * n
+          = (n^2 - n)/2
+```
+* Thus, the worst case running time of bubblesort is Θ(n<sup>2</sup>), the same as insertion sort.
