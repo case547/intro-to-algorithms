@@ -38,3 +38,7 @@ Bubblesort(A)
 * **Initialisation:** Initially, j = n, so the subarray A[j..n] contains only one one element A[n], trivially the smallest element of the subarray, and thus the loop invariant holds
 * **Maintainence:** Every iteration of the loop, A[j] is compared to A[j-1], and is swapped if smaller. After each iteration, the length of subarray A[j..n] increases by one and A[j] is the smallest element within it. The elements in the subarray remain a permutation of the elements that were it at the start of the loop.
 * **Termination:** The loop terminates when j = i. As A[i] is the smallest element in A[i..n], and A[i..n] would consist of the same elements as at the start of the loop, the loop invariant is held.
+
+***c.*** Using the termination condition of the loop invariant proved in part (b), state a loop invariant for the **for** loop in lines 1–4 that will allow you to prove _A_'[1] ≤ _A_'[2] ≤ ... ≤ _A_'[_n_]. Your proof should use the strucutre of the loop invariant prof present in this chapter.
+
+* At the start of each iteration of the loop, the subarray A[1..i-1] contains the i-1 smallest values in the array in sorted order. Subarray A[i..n] contains the remaining n-i+1 remaining values in the array.
