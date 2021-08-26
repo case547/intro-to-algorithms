@@ -91,4 +91,16 @@ y = Σ<sub>k=0</sub><sup>n-(i+1)</sup> [a<sub>k+i+1</sub>x<sup>k</sup>]
 
 Interpret a summation with no terms as equalling 0. Following the structure of the loop invariant proof presented in this chapter, use this loop invariant to show that, at termination, y = Σ<sup>n</sup><sub>k=0</sub> a<sub>k</sub>x<sup>k</sup>
 * **Initialisation:** Initially, i = n such that k ranges from 0 to n-(n+1) = -1. Hence, y = 0.
-* **Maintenence:** Every iteration of the loop, 
+* **Maintenence:** Every iteration of the loop, we get:<br>
+y = a<sub>i</sub> + x · Σ<sub>k=0</sub><sup>n-(i+1)</sup> [a<sub>k+i+1</sub>x<sup>k</sup>] = a<sub>i</sub> + Σ<sub>k=0</sub><sup>n-i-1</sup> [a<sub>k+i+1</sub>x<sup>k+1</sup>] = a<sub>i</sub> + Σ<sup>n-i</sup><sub>k=1</sub> [a<sub>k+i</sub>x<sup>k</sup>] = Σ<sup>n-i</sup><sub>k=0</sub> [a<sub>k+i+1</sub>x<sup>k</sup>]
+* **Termination:** The loop terminates when i = -1. Substituting this results in:<br>
+y = Σ<sub>k=0</sub><sup>n-(-1+1)</sup> [a<sub>k-1+1</sub>x<sup>k</sup>] = Σ<sup>n</sup><sub>k=0</sub> a<sub>k</sub>x<sup>k</sup>
+
+***d.*** Conclude by arguing that the given code fragment correctly evaluates a polynomial characterised by the coefficients *a*<sub>0</sub>, *a*<sub>1</sub>, ..., *a*<sub>n</sub>.
+* The loop invariant shows that the evaluated sum would result in a polynomial with the given coefficients
+
+***2-4 Inversions***<br>
+Let *A*[1...n] be an array of *n* distinct numbers. If *i* < *j* and *A*[*i*] > *A*[*j*], then the pair (*i*, *j*) is called an *inversion* of *A*.
+
+***a.*** List the five inversions of the array <2, 3, 8, 6. 1>.
+* (2,3), (2,8), (2,6), (3,8), (3,6)
