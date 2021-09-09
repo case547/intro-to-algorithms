@@ -102,5 +102,34 @@ y = Σ<sub>k=0</sub><sup>n-(-1+1)</sup> [a<sub>k-1+1</sub>x<sup>k</sup>] = Σ<su
 ***2-4 Inversions***<br>
 Let *A*[1...n] be an array of *n* distinct numbers. If *i* < *j* and *A*[*i*] > *A*[*j*], then the pair (*i*, *j*) is called an *inversion* of *A*.
 
-***a.*** List the five inversions of the array <2, 3, 8, 6. 1>.
-* (2,3), (2,8), (2,6), (3,8), (3,6)
+***a.*** List the five inversions of the array [2, 3, 8, 6, 1].
+* (1,5), (2,5), (3,4), (3,5), (4,5)
+
+***b.*** What array with the elements from the set {1, 2, ..., *n*} have the most inversion? How many does it have?
+* [n, ..., 1]
+* (n/2)*(1+n) = (n<sup>2</sup>+n)/2
+
+***c.*** What is the relationship between running time of insertion sort and the number of inversions in the input array? Justify your answer.
+* Running time would be proportional to the number of inversions
+* The while loop's condition is if the pair of numbers in question is an inversion, i.e. every iteration of the loop represents the righting of an inversion
+
+***d.*** Give an algorithm that determines the number of inversions in any permutation on elements in Θ(*n* lg *n*) worst-case time. (*Hint:* Modify merge sort.)
+
+```python
+def add_inversion(arr, start, mid, end):
+    left = arr[start:mid+1]
+    right = arr[mid+1:end+1]
+
+    i = 0, j = 0, k = start
+
+    while len(left) > i and len(right) > j:
+        if left[i] <= right[j]:
+            arr[k] = left[i]
+            i += 1
+        else:
+            arr[k] = right[j]
+            j += 1
+
+        k += 1
+    
+```
